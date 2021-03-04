@@ -20,6 +20,10 @@
     <link href="{{asset('/fontawesome/css/solid.css')}}" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('style')
+    <style>
+        @yield('css')
+    </style>
 </head>
 <body>
     <div id="app">
@@ -35,7 +39,7 @@
                 <a class="btn" href="{{route('nations.index')}}">
                     Quốc gia
                 </a>
-                <a class="btn" href="#">
+                <a class="btn" href="{{route('films.index')}}">
                     Phim
                 </a>
                 @endif

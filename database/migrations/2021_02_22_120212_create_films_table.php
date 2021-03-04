@@ -16,16 +16,16 @@ class CreateFilmsTable extends Migration
         Schema::create('films', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name',255);
-//            $table->string('sub_name',255);
             $table->integer('nations_id')->comment('thuộc quốc gia');
-            $table->string('thumbnail',255)->nullable(false)->comment('avatar');
+            $table->string('thumbnail',500)->nullable(false)->comment('avatar');
             $table->integer('categorys_id')->comment('thể loại phim');
             $table->string('year')->default('N/A')->comment('năm sản xuất');
-//            $table->string('quality')->comment('chất lượng');
+            $table->string('quality')->comment('chất lượng');
+            $table->string('time')->comment('thoi luong phim');
             $table->string('link')->nullable(false)->comment('Link film');
             $table->string('trailer')->nullable()->comment('link trailer')->nullable();
-//            $table->string('resolution')->comment('độ phân giải');
-            $table->text('content')->nullable();
+            $table->string('resolution')->comment('độ phân giải');
+            $table->text('contentfilm')->nullable();
             $table->string('cast')->comment('diễn viên')->nullable();
             $table->string('episodes')->comment('số tập')->nullable();
             $table->string('language')->comment('ngôn ngữ')->nullable();
