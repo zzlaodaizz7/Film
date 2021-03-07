@@ -15,15 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="{{asset('/fontawesome/css/fontawesome.css')}}" rel="stylesheet">
-    <link href="{{asset('/fontawesome/css/brands.css')}}" rel="stylesheet">
-    <link href="{{asset('/fontawesome/css/solid.css')}}" rel="stylesheet">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @yield('style')
-    <style>
-        @yield('css')
-    </style>
 </head>
 <body>
     <div id="app">
@@ -32,23 +26,6 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                @if(\Illuminate\Support\Facades\Auth::check())
-                <a class="btn" href="{{route('categories.index')}}">
-                    Danh mục
-                </a>
-                <a class="btn" href="{{route('nations.index')}}">
-                    Quốc gia
-                </a>
-                <a class="btn" href="{{route('films.index')}}">
-                    Phim
-                </a>
-                @endif
-{{--                <a class="btn" href="#">--}}
-{{--                    Danh mục--}}
-{{--                </a>--}}
-{{--                <a class="btn" href="#">--}}
-{{--                    Danh mục--}}
-{{--                </a>--}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -63,9 +40,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>

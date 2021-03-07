@@ -1,26 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\NationController;
+use App\Http\Controllers\Backend\FilmController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
-Route::middleware(['auth'])->group(function(){
-    Route::resource('/categories','backend\Categories');
-    Route::resource('/nations','backend\Nations');
-    Route::resource('/films','backend\Films');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('category', CategoryController::class);
+    Route::resource('nation', NationController::class);
+    Route::resource('film', FilmController::class);
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Nation;
 use Illuminate\Http\Request;
 use App\Film;
-class Films extends Controller
+class FilmController extends Controller
 {
     /**
      * Display a listing of the resource.
