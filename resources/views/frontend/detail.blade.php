@@ -739,22 +739,26 @@
                 <section class="relative z-10 p-6 bg-white shadow-lg md:flex md:items-center md:p-12 lg:p-16">
                     <div class="content md:pr-12">
                         <h2 class="text-3xl tracking-tight sm:text-4xl md:mt-4 xl:text-5xl">Có thể bạn muốn xem</h2>
-                        <div class="flex flex-1 overflow-x-auto">
-                            <div class="flex" style="width: 100%">
-                                @for($i = 0; $i<=10; $i++)
-                                    <div style="min-width: 300px; text-align: justify;">
-                                        <img class="rounded-lg block mx-auto"
-                                             style="width: 168px; height: 256px; object-fit: cover"
-                                             src="https://s3.cloud.cmctelecom.vn/tinhte1/2018/01/4232589_23032609_2010316629239876_7899792449471609542_n.jpg">
+                        <div class="md:grid">
+                            @for($i = 0; $i<=10; $i++)
+                                <div class="md:col-span-3">
+                                    <div class="flex" style="text-align: justify;">
                                         <div>
-                                            <a href="#">Đừng Chọc Giận Con Gái - Don’t Mess With Girl</a>
+                                            <img class="rounded-lg block mx-auto"
+                                                 style="width: 168px; height: 256px; object-fit: cover"
+                                                 src="https://s3.cloud.cmctelecom.vn/tinhte1/2018/01/4232589_23032609_2010316629239876_7899792449471609542_n.jpg">
                                         </div>
                                         <div>
-                                            <a href="#">Thể loại</a>
+                                            <div>
+                                                <a href="#">Đừng Chọc Giận Con Gái - Don’t Mess With Girl</a>
+                                            </div>
+                                            <div>
+                                                <a href="#">Thể loại</a>
+                                            </div>
                                         </div>
                                     </div>
-                                @endfor
-                            </div>
+                                </div>
+                            @endfor
                         </div>
                     </div>
                 </section>
