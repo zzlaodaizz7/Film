@@ -1308,6 +1308,10 @@ pre[class*=language-].line-numbers > code {
     margin-top: .25rem !important
 }
 
+.mr-1 {
+    margin-right: .25rem !important
+}
+
 .ml-1 {
     margin-left: .25rem !important
 }
