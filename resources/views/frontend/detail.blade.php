@@ -39,7 +39,7 @@
     @click.away="navIsOpen = false"
 >
     <div class="relative max-w-screen-2xl mx-auto w-full py-10 bg-white transition duration-200">
-        <div class="max-w-screen-xl mx-auto px-8 flex items-center justify-between">
+        <div class="max-w-screen-xl mx-auto pl-8 flex items-center justify-between">
             <a href="/" class="flex items-center">
                 <img style="width: 50px"
                      src="https://s3.cloud.cmctelecom.vn/tinhte1/2018/01/4232586_15275641_174487356357898_219921850476527616_n.jpg"
@@ -56,19 +56,19 @@
                     class="ml-4 relative flex-1 flex justify-end max-w-xs w-full lg:absolute lg:right-0 lg:max-w-xxs lg:ml-10 xl:max-w-xs">
                     <div
                         class="w-full w-6 relative w-6 border-b border-gray-600 border-opacity-50 overflow-hidden transition-all duration-500 lg:w-full hover:w-full focus-within:border-gray-600">
-                        <svg class="absolute inset-y-0 left-0 z-10 mt-1 w-5 h-5 text-gray-900 pointer-events-none"
+                        <svg class="absolute inset-y-0 left-0 z-10 mt-1 w-5 h-5 text-gray-900 pointer-events-none hidden lg:block block"
                              fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                         </svg>
                         <input
                             x-model.debouce.200ms="search"
-                            class="flex-1 w-full pl-8 pr-4 py-1 placeholder-gray-900 tracking-wide bg-white focus:outline-none"
+                            class="flex-1 w-full lg:pl-8 pl-0 pr-4 py-1 placeholder-gray-900 tracking-wide bg-white focus:outline-none"
                             placeholder="Tìm kiếm phim..."
                             aria-label="Tìm kiếm phim..."
                         >
                     </div>
-                    <div class="absolute w-full mt-8 pt-px divide-y divide-gray-200 shadow-sm z-30">
+                    <div class="absolute w-full mt-10 pt-px divide-y divide-gray-200 shadow-sm z-30">
                         <div>
                             <a class="search-result block px-4 py-3 bg-gray-100 transition-colors duration-200 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
                                href="###">
@@ -83,8 +83,18 @@
                         </div>
                     </div>
                     <button
-                        style="color:#fff;background-color:#f972a9;border-radius:4px;font-weight:700; min-width: 100px">
-                        <span x-show="searchButton">Tìm kiếm</span></button>
+                        style="color:#fff;background-color:#f972a9;border-radius:4px;font-weight:700">
+                        <span class="hidden lg:block block" style="min-width: 100px">Tìm kiếm</span>
+                        <div
+                            class="px-2 text-red-600 lg:hidden focus:outline-none focus:shadow-outline">
+                            <svg
+                                class="inset-y-0 left-0 z-10 w-5 h-5 text-gray-900 pointer-events-none"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                    </button>
                 </form>
                 <button
                     class="ml-2 relative w-10 h-10 p-2 text-red-600 lg:hidden focus:outline-none focus:shadow-outline"

@@ -2656,6 +2656,10 @@ pre[class*=language-].line-numbers > code {
         padding-left: 0 !important
     }
 
+    .lg\:pl-8 {
+        padding-left: 2rem !important
+    }
+
     .lg\:pt-3 {
         padding-top: .75rem !important
     }
