@@ -11,4 +11,8 @@ class DetailController extends Controller
     {
         return view('frontend.detail');
     }
+
+    public function watch() {
+        return view('frontend.watch');
+    }
 }

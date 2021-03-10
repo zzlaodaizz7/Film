@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Frontend\DetailController;
 
 Route::get('{code}', [DetailController::class, 'index'])->name('detail');
+Route::get('w/{code}', [DetailController::class, 'watch'])->name('detail');
 Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['prefix' => 'admin'], function () {
