@@ -9,5 +9,5 @@ Route::get('{code}', [DetailController::class, 'index'])->name('detail');
 //Trang xem phim
 Route::get('w/{code}', [DetailController::class, 'watch'])->name('watch');
 //Trang chủ
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
