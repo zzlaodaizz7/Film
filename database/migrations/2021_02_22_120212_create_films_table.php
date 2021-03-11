@@ -6,39 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFilmsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('films', function (Blueprint $table) {
-            $table->id()->autoIncrement();
-            $table->string('name',255);
-            $table->integer('nations_id')->comment('thuộc quốc gia');
-            $table->string('thumbnail',500)->nullable(false)->comment('avatar');
-            $table->integer('categorys_id')->comment('thể loại phim');
-            $table->string('year')->default('N/A')->comment('năm sản xuất');
-            $table->string('quality')->comment('chất lượng');
+            $table->id();
+            $table->string('name', 500);
+            $table->string('code', 520)->index()->unique();
+            $table->string('nation', 100);
+            $table->json('thumbnails')->comment('avatar');
+            $table->integer('category_id')->comment('thể loại phim');
+            $table->string('quality')->nullable()->comment('chất lượng');
             $table->string('time')->comment('thoi luong phim');
-            $table->string('link')->nullable(false)->comment('Link film');
-            $table->string('trailer')->nullable()->comment('link trailer')->nullable();
-            $table->string('resolution')->comment('độ phân giải');
-            $table->text('contentfilm')->nullable();
-            $table->string('cast')->comment('diễn viên')->nullable();
-            $table->string('episodes')->comment('số tập')->nullable();
+            $table->string('link')->comment('Link film');
+            $table->text('trailer')->nullable()->comment('link trailer');
+            $table->string('resolution')->nullable()->comment('độ phân giải');
+            $table->longText('content')->nullable();
+            $table->json('actors')->comment('diễn viên')->nullable();
+            $table->string('total_episode')->nullable()->comment('số tập');
             $table->string('language')->comment('ngôn ngữ')->nullable();
-            $table->string('status')->comment('trạng thâi')->nullable();
+            $table->bigInteger('counter_view')->default(0);
+            $table->string('status')->default('open');
+            $table->integer('film_timestamp_created')->default(0)->comment('ngày sản xuất');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('films');
